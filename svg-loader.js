@@ -289,6 +289,9 @@ if (globalThis.IntersectionObserver) {
 
 const handled = [];
 function renderAllSVGs() {
+  if (typeof document === 'undefined') {
+    return
+  }
   Array.from(document.querySelectorAll("svg[data-src]:not([data-id])")).forEach(
     (element) => {
       if (handled.indexOf(element) !== -1) {
